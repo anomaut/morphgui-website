@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Primary Meta Tags -->
+  <!-- TODO: Replace with your paper title and author names -->
+  <meta name="title" content="MorphGUI: Real-time GUIs Customization with Large Language Models">
+  <!-- TODO: Write a compelling 150-160 character description of your research -->
+  <meta name="description" content="MorphGUI enables natural-language GUI customization for non-experts. A dual-field prompt maps functional and visual intents to runtime component changes. A user study (n=18) shows effective, intuitive customization across simple and complex tasks.">
+  <meta name="keywords" content="User Interface Customization, Natural Language Interaction, Large Language Models, Interactive Systems, UI Personalization, Interface Generation">
+  <meta name="author" content="Tommaso Calò, Andrea Sillano, Luigi De Russis">
+  <meta name="robots" content="index, follow">
+  <meta name="language" content="English">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="article">
+  <!-- TODO: Replace with your institution or lab name -->
+  <meta property="og:site_name" content="INSTITUTION_OR_LAB_NAME">
+  <!-- TODO: Same as paper title above -->
+  <meta property="og:title" content="PAPER_TITLE">
+  <!-- TODO: Same as description above -->
+  <meta property="og:description" content="BRIEF_DESCRIPTION_OF_YOUR_RESEARCH_CONTRIBUTION_AND_FINDINGS">
+  <!-- TODO: Replace with your actual website URL -->
+  <meta property="og:url" content="https://YOUR_DOMAIN.com/YOUR_PROJECT_PAGE">
+  <!-- TODO: Create a 1200x630px preview image and update path -->
+  <meta property="og:image" content="https://YOUR_DOMAIN.com/static/images/social_preview.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="PAPER_TITLE - Research Preview">
+  <meta property="article:published_time" content="2024-01-01T00:00:00.000Z">
+  <meta property="article:author" content="FIRST_AUTHOR_NAME">
+  <meta property="article:section" content="Research">
+  <meta property="article:tag" content="KEYWORD1">
+  <meta property="article:tag" content="KEYWORD2">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <!-- TODO: Replace with your lab/institution Twitter handle -->
+  <meta name="twitter:site" content="@YOUR_TWITTER_HANDLE">
+  <!-- TODO: Replace with first author's Twitter handle -->
+  <meta name="twitter:creator" content="@AUTHOR_TWITTER_HANDLE">
+  <!-- TODO: Same as paper title above -->
+  <meta name="twitter:title" content="PAPER_TITLE">
+  <!-- TODO: Same as description above -->
+  <meta name="twitter:description" content="BRIEF_DESCRIPTION_OF_YOUR_RESEARCH_CONTRIBUTION_AND_FINDINGS">
+  <!-- TODO: Same as social preview image above -->
+  <meta name="twitter:image" content="https://YOUR_DOMAIN.com/static/images/social_preview.png">
+  <meta name="twitter:image:alt" content="PAPER_TITLE - Research Preview">
+
+  <!-- Academic/Research Specific -->
+  <meta name="citation_title" content="PAPER_TITLE">
+  <meta name="citation_author" content="FIRST_AUTHOR_LAST, FIRST_AUTHOR_FIRST">
+  <meta name="citation_author" content="SECOND_AUTHOR_LAST, SECOND_AUTHOR_FIRST">
+  <meta name="citation_publication_date" content="2024">
+  <meta name="citation_conference_title" content="CONFERENCE_NAME">
+  <meta name="citation_pdf_url" content="https://YOUR_DOMAIN.com/static/pdfs/paper.pdf">
+
+  <!-- Additional SEO -->
+  <meta name="theme-color" content="#2563eb">
+  <meta name="msapplication-TileColor" content="#2563eb">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+
+  <!-- Preconnect for performance -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://ajax.googleapis.com">
+  <link rel="preconnect" href="https://documentcloud.adobe.com">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+
+
+  <!-- TODO: Replace with your paper title and authors -->
+  <title>MorphGUI: Real-time GUIs Customization with Large Language Models</title>
+
+  <!-- Favicon and App Icons -->
+  <link rel="icon" type="image/x-icon" href="static/images/favicon.ico">
+  <link rel="apple-touch-icon" href="static/images/favicon.ico">
+
+  <!-- Critical CSS - Load synchronously -->
+  <link rel="stylesheet" href="static/css/bulma.min.css">
+  <link rel="stylesheet" href="static/css/index.css">
+
+  <!-- Non-critical CSS - Load asynchronously -->
+  <link rel="preload" href="static/css/bulma-carousel.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" href="static/css/bulma-slider.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" href="static/css/fontawesome.all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+
+  <!-- Fallback for browsers that don't support preload -->
+  <noscript>
+    <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
+    <link rel="stylesheet" href="static/css/bulma-slider.min.css">
+    <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  </noscript>
+
+  <!-- Fonts - Optimized loading -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Defer non-critical JavaScript -->
+  <script defer src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
+  <script defer src="static/js/fontawesome.all.min.js"></script>
+  <script defer src="static/js/bulma-carousel.min.js"></script>
+  <script defer src="static/js/bulma-slider.min.js"></script>
+  <script defer src="static/js/index.js"></script>
+
+  <!-- Structured Data for Academic Papers -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ScholarlyArticle",
+    "headline": "PAPER_TITLE",
+    "description": "BRIEF_DESCRIPTION_OF_YOUR_RESEARCH_CONTRIBUTION_AND_FINDINGS",
+    "author": [
+      {
+        "@type": "Person",
+        "name": "FIRST_AUTHOR_NAME",
+        "affiliation": {
+          "@type": "Organization",
+          "name": "INSTITUTION_NAME"
+        }
+      },
+      {
+        "@type": "Person",
+        "name": "SECOND_AUTHOR_NAME",
+        "affiliation": {
+          "@type": "Organization",
+          "name": "INSTITUTION_NAME"
+        }
+      }
+    ],
+    "datePublished": "2024-01-01",
+    "publisher": {
+      "@type": "Organization",
+      "name": "CONFERENCE_OR_JOURNAL_NAME"
+    },
+    "url": "https://YOUR_DOMAIN.com/YOUR_PROJECT_PAGE",
+    "image": "https://YOUR_DOMAIN.com/static/images/social_preview.png",
+    "keywords": ["KEYWORD1", "KEYWORD2", "KEYWORD3", "machine learning", "computer vision"],
+    "abstract": "FULL_ABSTRACT_TEXT_HERE",
+    "citation": "BIBTEX_CITATION_HERE",
+    "isAccessibleForFree": true,
+    "license": "https://creativecommons.org/licenses/by/4.0/",
+    "mainEntity": {
+      "@type": "WebPage",
+      "@id": "https://YOUR_DOMAIN.com/YOUR_PROJECT_PAGE"
+    },
+    "about": [
+      {
+        "@type": "Thing",
+        "name": "RESEARCH_AREA_1"
+      },
+      {
+        "@type": "Thing",
+        "name": "RESEARCH_AREA_2"
+      }
+    ]
+  }
+  </script>
+
+  <!-- Website/Organization Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "INSTITUTION_OR_LAB_NAME",
+    "url": "https://YOUR_INSTITUTION_WEBSITE.com",
+    "logo": "https://YOUR_DOMAIN.com/static/images/favicon.ico",
+    "sameAs": [
+      "https://twitter.com/YOUR_TWITTER_HANDLE",
+      "https://github.com/YOUR_GITHUB_USERNAME"
+    ]
+  }
+  </script>
+</head>
+<body>
+
+
+  <!-- Scroll to Top Button -->
+  <button class="scroll-to-top" onclick="scrollToTop()" title="Scroll to top" aria-label="Scroll to top">
+    <i class="fas fa-chevron-up"></i>
+  </button>
+
+
+  <main id="main-content">
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <!-- TODO: Replace with your paper title -->
+            <h1 class="title is-1 publication-title">MorphGUI: Real-time GUIs Customization with Large Language Models</h1>
+            <div class="is-size-5 publication-authors">
+              <!-- TODO: Replace with your paper authors and their personal links -->
+              <span class="author-block">
+                <span class="author-block"><a href="https://tommasocalo.github.io" target="_blank">TOMMASO CALÒ</a>,<!--<sup>*</sup>--></span>
+                <span class="author-block"><a href="" target="">ANDREA SILLANO</a>,<!--<sup>*</sup>--></span>
+                <span class="author-block"><a href="https://www.polito.it/personale?p=luigi.derussis" target="_blank">LUIGI DE RUSSIS</a><!--<sup>*</sup>--></span>
+
+                  </div>
+
+                  <div class="is-size-5 publication-authors">
+                    <!-- TODO: Replace with your institution and conference/journal info -->
+                    <span class="author-block"><br>under review</span>
+                    <!-- TODO: Remove this line if no equal contribution -->
+                    <!--<span class="eql-cntrb"><small><br><sup>*</sup>Indicates Equal Contribution</small></span>-->
+                  </div>
+
+                  <div class="column has-text-centered">
+                    <div class="publication-links">
+                         <!-- TODO: Update with your arXiv paper ID -->
+                      <span class="link-block">
+                        <a href="" target="_blank"
+                        class="external-link button is-normal is-rounded is-dark">
+                        <span class="icon">
+                          <i class="fa fa-link"></i>
+                        </span>
+                        <span>MorphGUI Demo</span>
+                      </a>                    
+                         <a href="" target="_blank"
+                        class="external-link button is-normal is-rounded is-dark">
+                        <span class="icon">
+                          <i class="fa fa-code"></i>
+                        </span>
+                        <span>Code</span>
+                      </a>
+
+                    </span>
+
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- Image carousel -->
+<section class="hero is-small ">
+  <div class="hero-body">
+    <div class="container">
+      <div id="results-carousel" class="carousel results-carousel">
+       <div class="item">
+        <!-- TODO: Replace with your research result images -->
+        <img src="static/images/carousel1.png" alt="First research result visualization" loading="lazy"/>
+        <!-- TODO: Replace with description of this result -->
+        <h2 class="subtitle has-text-centered">
+          Web app interface - Users can use the web app like a standard application.
+        </h2>
+      </div>
+      <div class="item">
+        <!-- Your image here -->
+        <img src="static/images/carousel2.png" alt="Second research result visualization" loading="lazy"/>
+        <h2 class="subtitle has-text-centered">
+          Enhancing with AI - Users describe changes, select components to redesign, separate “What it should do” (functional) from “How it should appear” (visual).
+
+        </h2>
+      </div>
+
+     <div class="item">
+      <!-- Your image here -->
+      <img src="static/images/carousel4.png" alt="Third research result visualization" loading="lazy"/>
+      <h2 class="subtitle has-text-centered">
+        New web app interface - The new interface is generated and shown to the user that can use the new UI or further modify it.
+             </h2>
+   </div>
+  </div>
+  <div class="content has-text-justified">
+              <div class="content has-text-justified">
+                <p>
+                  MorphGUI is a <strong>framework</strong> that leverages Large Language Models to enable users to customize interfaces using <strong>natural language</strong> without altering the application’s <strong>core functionalities</strong>.
+                   Its structured dual-input design separates <strong>functional goals</strong> (“what it should do”) from <strong>visual specifications</strong> (“how it should appear”), 
+                   allowing users to modify interface elements while maintaining the integrity of the underlying system logic. Powered by a <strong>dynamic component</strong> architecture, 
+                   MorphGUI applies updates at runtime, preserving both the application state and baseline functionality. 
+                  </p>
+                  
+          </div>
+        </div>
+</div>
+
+</div>
+
+</section>
+
+<!-- Paper Image -->
+<!-- Paper abstract -->
+<section class="section hero is-light">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <!-- TODO: Replace with your paper abstract -->
+          <p>
+            Graphical user interface (GUI) customization relies on predefined configuration options and settings, constraining diverse individual needs and preferences within predetermined boundaries and often requiring technical expertise. To address these limitations, this work introduces MorphGUI, a framework leveraging Large Language Models (LLMs) to enable interface customization through natural language. By allowing users to express desired changes using their own words and harnessing the generative capabilities of LLMs, MorphGUI mitigates the limitations of predefined options and reduces the need for technical expertise. The framework translates functional and stylistic requests into either modifications of existing application components or generation of new ones. Through a use case implementation with a calendar application and a user study (n=18), where participants were tasked with modifying interfaces towards a target goal, we investigate if MorphGUI can enable effective natural language-driven interface customization for non-expert users through both functional and visual modifications. Results show that participants successfully customized interfaces using natural language. Users found the system intuitive and achieved good performance regardless of technical background, we report analysis of optimal prompt length, challenges in separating functional and visual instructions in structured templates, correlation between LLM experience and success, and learning effects. The study revealed opportunities for enhanced guidance, examples, and scaffolding to help users structure their customization requests more effectively.          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End paper abstract -->
+>
+
+<!-- Paper Beats -->
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container ">
+      <h2 class="title is-3">Customization Interface</h2>
+
+      <div class="columns is-vcentered">
+        <div class="column is-5 has-text-centered">
+          <img src="static/images/customizationMenu.png"
+               alt="Customization menu interface"
+               class="image"
+               style="width: 70%; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); border-radius: 12px;"
+             />
+        </div>
+        <div class="column is-7">
+          <div class="content has-text-justified">
+            <p>
+              The "Enhance With AI" panel in MorphGUI enables users to personalize and modify their interface through AI-assisted customization. It features two main sections, <strong>Static Settings</strong> and <strong>Dynamic Settings</strong>, allowing configuration of both fixed and adaptive interface components. 
+              Within the <strong>Dynamic Settings</strong> tab, the <strong>Personalize</strong> section introduces <strong>component-level targeting</strong> for modifying or adding UI elements. 
+              Users specify <em>What it should do</em> to define the element’s functional behavior and <em>How it should appear</em> to control its styling and layout.
+              The panel also provides three main actions: <strong>Generate</strong> to apply the defined changes, <strong>Previous</strong> to roll back to a previous configuration, and <strong>Restore</strong> 
+              to return the interface to its last stable state. 
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Paper Feedback -->
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container">
+      <h2 class="title is-3">Workflow & Real-time Updates</h2>
+
+      <!-- IMAGE BLOCK -->
+      <div class="triangle-images" style="display: flex; flex-direction:  row; align-items: center; justify-content: center; gap: 20px; ">
+        <img src="static/images/feedback.png"
+             alt="StoryPilot feedback visualization"
+             style="width: 80%; box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); border-radius: 12px; margin-bottom: 30px;" />
+      </div>
+
+      <!-- TEXT BLOCK -->
+      <div class="content has-text-justified">
+        <p>
+          MorphGUI combines selected component context, user inputs, and constraints into <strong>structured prompts</strong> for the LLM, then validates specifications and <strong>transforms them into executable UI code</strong>. 
+          The <strong>dynamic component</strong> bridges generated code and the app’s runtime, handling dependency resolution and compilation in real-time effectively rendering the new UI.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Paper Image -->
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container">
+         <h2 class="title is-3">Architecture</h2>
+      <div class="columns is-vcentered">
+        <!-- LEFT COLUMN: TRIANGLE IMAGES -->
+        <div class="column is-light">
+          <div class="triangle-images" style="display: grid; align-items: center; justify-items: center;">
+             <img src="static/images/workflow.png" alt="Third research result visualization"                   style="width: 80%; box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); border-radius: 12px; padding: 16px;"
+            />
+          </div>
+        </div>
+
+      </div>
+      <div class="content has-text-justified">
+        <p>
+          The <strong>system architecture</strong> implements a modular <em>client-server</em> model that enables real-time GUI customization through natural language interaction. 
+          The <strong>Front-end</strong> is a web-based interface built on a component-driven framework that communicates bidirectionally with <strong>Dynamic Components</strong> for runtime rendering and update of interface elements. 
+          These components interface with the <strong>Server</strong> layer via <em>RESTful APIs</em> to support synchronous data exchange and asynchronous updates. The <strong>Server</strong>, developed using Node.js and the Express.js 
+          framework, orchestrates communication with the <strong>AI module</strong>,a large language model that parses natural language inputs and translates them into executable interface specifications. 
+          The <strong>Database</strong> layer, implemented with SQLite, manages persistent storage of user preferences, interface states, and component configurations, enabling rollback and version control functionalities. 
+          The <strong>User Preferences</strong> subsystem provides contextual adaptation by maintaining individualized configuration data that influence interface behavior and visual presentation across sessions.
+          </p>
+          
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container">
+      <h2 class="title is-3">User Study Results</h2>
+
+      <div class="content has-text-justified">
+        <p>
+          The user study evaluated <strong>MorphGUI</strong> in terms of usability, learning curve, and interaction effectiveness when customizing graphical interfaces through <strong>natural language</strong>. 
+          Participants performed a series of <strong>interface modification tasks</strong> using a calendar application. Each participant started with a <em>base calendar layout</em> and used MorphGUI to reproduce one or more <strong>target interfaces</strong> of increasing complexity. 
+          The <em>easy task</em> involved straightforward visual or structural edits (e.g., changing colors, repositioning elements), while the <em>complex task</em> required <strong>functional and aesthetic modifications</strong>, such as adding components, reorganizing layouts, or combining multiple requests into a single prompt.
+        </p>
+
+        <div class="columns is-centered mt-5">
+          <div class="column ">
+            <figure class="image">
+              <img src="static/images/target_interfaces.png" alt="Starting and target calendar interfaces used in the MorphGUI study." style="width: 200%; box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); border-radius: 12px; padding: 16px;">
+              <figcaption>Starting calendar interface (left) and target designs for the easy (top right) and complex (bottom right) customization tasks.</figcaption>
+            </figure>
+          </div>
+        </div>
+
+        <p>
+          Results from the <strong>System Usability Scale (SUS)</strong> and custom <strong>Likert-scale items</strong> indicate that participants found MorphGUI <strong>intuitive, well-integrated, and easy to use</strong>, with low perceived complexity. 
+          Most participants <em>disagreed</em> with statements suggesting high cognitive demand or inconsistency, confirming a <strong>low learning overhead</strong> and <strong>high user confidence</strong>.
+        </p>
+
+        <div class="columns is-centered mt-4">
+          <div class="column  has-text-centered">
+            <figure class="image">
+              <img src="static/images/exper.png" alt="User experience metrics" style="box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); border-radius: 12px; padding: 16px; width: 100%;">
+              <figcaption>Event occurrences for Generate, Reset, and Previous actions, alongside prompt length and task scores across participants.</figcaption>
+            </figure>
+          </div>
+        </div>
+
+        <p>
+          Correlation analyses revealed <strong>no significant relationship</strong> between users’ familiarity with large language models (LLMs) and overall task performance (Pearson r = -0.03, p = 0.883), suggesting that <strong>even participants unfamiliar with LLMs were able to effectively complete customization tasks</strong>. 
+          However, a mild positive trend (r = 0.24, p = 0.165) was observed between <strong>prompt descriptiveness</strong> and task success, implying that clearer and more detailed natural language prompts tended to produce better customization outcomes.
+          Additionally, analysis of <strong>template usage patterns</strong> showed that participants primarily relied on the <em>“what” field</em> for <strong>functional modifications</strong> and the <em>“how” field</em> for <strong>styling and layout changes</strong>, supporting MorphGUI’s dual-input design principle.
+        </p>
+
+        <!-- Figures -->
+        <div class="columns mt-5">
+          <div class="column is-one-half">
+            <figure class="image">
+              <img src="static/images/sus.png" alt="SUS Likert-scale responses for MorphGUI usability." style="box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); border-radius: 12px; padding: 16px;">
+              <figcaption>SUS-based Likert-scale results showing strong agreement with positive usability statements.</figcaption>
+            </figure>
+          </div>
+
+          <div class="column is-one-half">
+            <figure class="image">
+              <img src="static/images/exp_corr.png" alt="Correlation between LLM familiarity and MorphGUI task performance." style="box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); border-radius: 12px; padding: 16px;">
+              <figcaption> No significant correlation between user familiarity with LLMs and overall performance.</figcaption>
+            </figure>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+<!--Footer-->
+  <footer class="footer">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+
+          <p>
+            This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template</a> which was adopted from the <a href="https://nerfies.github.io" target="_blank">Nerfies</a> project page.
+            You are free to borrow the source code of this website, we just ask that you link back to this page in the footer. <br> This website is licensed under a <a rel="license"  href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+<!-- Custom CSS for transparent-outline tables -->
+<style>
+  .transparent-outline {
+    background: transparent;
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 0.9rem;
+  }
+  .transparent-outline th,
+  .transparent-outline td {
+    background: transparent !important;  /* ensure transparent cells */
+    border: 1px solid #ccc;             /* thin grey outline */
+    padding: 0.5rem;
+    text-align: left;
+  }
+  .transparent-outline thead th {
+    font-weight: 600;
+  }
+</style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Statcounter tracking code -->
+
+<!-- You can add a tracker to track page visits by creating an account at statcounter.com -->
+
+    <!-- End of Statcounter Code -->
+
+  </body>
+  </html>
